@@ -1,0 +1,47 @@
+<Window x:Class="TaskbarHider.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TaskbarHider Settings" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#F5F5F5">
+    <Grid Margin="20">
+        <StackPanel Spacing="15">
+            <!-- Title -->
+            <TextBlock Text="TaskbarHider Settings" FontSize="18" FontWeight="Bold" Foreground="#333"/>
+
+            <!-- Hide Delay -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Hide Delay (seconds):" VerticalAlignment="Center" FontSize="12"/>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="5">
+                    <Slider x:Name="DelaySlider" Width="60" Minimum="1" Maximum="30" 
+                            Value="3" VerticalAlignment="Center" ValueChanged="DelaySlider_ValueChanged"/>
+                    <TextBlock x:Name="DelayValue" Text="3" Width="30" VerticalAlignment="Center" FontSize="12"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Start with Windows -->
+            <CheckBox x:Name="StartupCheckbox" Content="Start with Windows" Foreground="#333" FontSize="12" Checked="StartupCheckbox_Checked" Unchecked="StartupCheckbox_Unchecked"/>
+
+            <!-- Game Detection -->
+            <CheckBox x:Name="GameDetectionCheckbox" Content="Auto-show during fullscreen games" Foreground="#333" FontSize="12" IsChecked="True" Checked="GameDetection_Checked" Unchecked="GameDetection_Unchecked"/>
+
+            <!-- Multi-Monitor -->
+            <CheckBox x:Name="MultiMonitorCheckbox" Content="Enable multi-monitor support" Foreground="#333" FontSize="12" IsChecked="True" Checked="MultiMonitor_Checked" Unchecked="MultiMonitor_Unchecked"/>
+
+            <!-- Info -->
+            <Border Background="#E8F4F8" CornerRadius="4" Padding="10" Margin="0,10,0,0">
+                <TextBlock Text="💡 Tip: Move your mouse to the bottom edge of the screen to show the taskbar." 
+                           FontSize="11" Foreground="#0066CC" TextWrapping="Wrap"/>
+            </Border>
+
+            <!-- Close Button -->
+            <Button Content="Close" Click="Close_Click" Background="#0078D4" Foreground="White" 
+                    Padding="10,8" FontSize="12" HorizontalAlignment="Right" Cursor="Hand"/>
+        </StackPanel>
+    </Grid>
+</Window>
